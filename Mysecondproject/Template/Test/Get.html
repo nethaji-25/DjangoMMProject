@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get datas</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/CRUD.css'%}">
+</head>
+<body>
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}">Logout</a>
+{% endif %}<br><br>
+<form action="{% url 'search'%}">
+<label>Search Employees: </label>
+<input type="text" name="find">
+<button>Submit</button><br><br>
+</form>
+
+<table class="blueTable">
+  <tr>
+    <th>Unique IDs</th>
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Employee Designation</th>
+    <th>Employee City</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+  {% for i in e%}
+  <tr>
+    <td>{{i.id}}</td>
+    <td>{{i.Empid}}</td>
+    <td>{{i.Name}}</td>
+    <td>{{i.Designation}}</td>
+    <td>{{i.City}}</td>
+    <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+    <td><a href="{% url 'put' i.id %}">Update</a></td>
+  </tr>
+  {% endfor %}
+</table><br>
+<a href="{% url 'post'%}">Add new employee</a>
+
+</body>
+</html>

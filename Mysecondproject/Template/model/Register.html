@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Employee Details</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    {{e.as_p}}
+    <input type="submit">
+</form>
+
+</body>
+</html>

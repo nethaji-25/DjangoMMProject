@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MM Exports - History</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Mohan.css'%}">
+</head>
+<body>
+
+
+  <main>
+    <!-- Hero -->
+    <section id="history" class="hero" role="region" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero__title">History of <span class="accent">MM Exports</span></h1>
+          <p class="hero__lead">
+            From trading to turnkey solutions — MM Exports started as merchant traders and evolved into a
+            multi-sector partner for infrastructure projects across the Maldives and beyond.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn--primary" href="{% url 'get' %}">Track Leads</a>
+            <a class="btn btn--primary" href="{% url 'create' %}">Create Leads</a>
+
+
+          </div>
+        </div>
+
+        <figure class="hero-image" aria-hidden="true">
+          <img src="{% static 'image/MM-hero.jpg' %}" alt="" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Who we are -->
+    <section id="who-we-are" class="section section--card" aria-labelledby="who-title">
+      <div class="container">
+        <h2 id="who-title">Who we are</h2>
+        <p class="muted">We are a multidimensional conglomerate, spanning diverse industries across multiple global geographies. Founded in 1957 as an international trading company, we have since expanded our business interests to Shipping, Real Estate, Infrastructure Development, Flexible Packaging, FMCG, and Healthcare.
+
+Across our various businesses and locations, a common belief binds the Mohan Mutha Group of companies: to grow mindfully and to grow together, carrying everyone along as a family, in our pursuit of success. We are headquartered in Chennai, with a presence in India, Singapore, U.A.E, Tanzania, and the Maldives.</p>
+
+        <div class="card-list">
+          <article class="card reveal">
+            <h3>Multidimensional Group</h3>
+            <p>Founded in 1957, operating across Shipping, Real Estate, Infrastructure, Packaging, FMCG and Healthcare.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Global Presence</h3>
+            <p>Headquartered in Chennai with operations in India, Singapore, U.A.E, Tanzania, and the Maldives.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>Logistics & Expertise</h3>
+            <p>Strong supply chains and logistics made us key trading partners of the Republic of Maldives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--light" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <p>Questions or project enquiries? Reach out — we'll get back to you shortly.</p>
+
+        <!-- Simple accessible contact buttons (replace href with proper URLs) -->
+        <div class="contact-actions">
+
+          <a class="btn btn--outline" href="{% url 'help' %}">Contact Us!</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ now.year }} MM Exports. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

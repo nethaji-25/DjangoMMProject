@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update data</title>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Employee ID: </label>
+    <input type="text" id="Empid" name="Empid" value="{{e.Empid}}"><br><br>
+    <label>Employee Name: </label>
+    <input type="text" id="Name" name="Name" value="{{e.Name}}"><br><br>
+    <label>Employee Designation: </label>
+    <input type="text" id="Designation" name="Designation" value="{{e.Designation}}"><br><br>
+    <label>Employee City: </label>
+    <input type="text" id="City" name="City" value="{{e.City}}"><br><br>
+    <button>Submit</button>
+</form>
+
+
+</body>
+</html>

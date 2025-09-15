@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Employee Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/emp.css'%}">
+</head>
+<body>
+<table width="100%">
+
+    <tr>
+        <th>Employee id</th>
+        <th>Employee name</th>
+        <th>Employee age</th>
+    </tr>
+    {% for i in a%}
+    <tr>
+        <td>{{i.eid}}</td>
+        <td>{{i.ename}}</td>
+        <td>{{i.eage}}</td>
+    </tr>
+
+
+    {% endfor %}
+</table><br>
+<a href="{% url 'reg' %}">Add Employee</a>
+
+</body>
+</html>

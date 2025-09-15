@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'CRUD/Dashboard.html'%}
+{% block content %}
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Employee Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/CRUD.css'%}">
+</head>
+<body>
+<form action="{% url 'search' %}">
+    <input type="text" name="details">
+    <button>Submit</button>
+</form><br><br>
+<table class="blueTable">
+    <tr>
+        <th>Employee Uniqueid</th>
+        <th>Employee Name</th>
+        <th>Employee ID</th>
+        <th>Employee City</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for i in e%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.Empname}}</td>
+        <td>{{i.Empid}}</td>
+        <td>{{i.Empcity}}</td>
+        <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+        <td><a href="{% url 'update' i.id %}">Update</a></td>
+    </tr>
+    {% endfor %}
+</table><br><br>
+<a href="{% url 'register'%}">Add Employee</a>
+
+</body>
+</html>
+{% endblock %}

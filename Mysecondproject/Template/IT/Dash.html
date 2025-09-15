@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Dashboard</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+<div class="wrap">
+    <header>
+      <div class="brand">
+
+        <div>
+          <h1>Sanmina Tech Services India</h1>
+          <div class="subtitle">Employee Dashboard</div>
+        </div>
+      </div>
+
+
+    </header>
+
+    <main>
+      <section>
+        <div class="panel hero">
+          <h2>Welcome to the Dashboard</h2>
+
+
+
+        </div>
+
+        <div class="panel">
+          <h2 style="margin-top:0">What Sanmina makes?</h2>
+          <p class="muted">Sanmina India Private Limited is the Indian arm of the global Sanmina Corporation, a leading provider of end-to-end design, manufacturing, and logistics services for complex optical, electronic, and mechanical products.</p>
+
+          <div class="cards" style="margin-top:18px">
+            <div class="card"><h3>Manufacturing</h3><p>Complex electronics and mechanical assemblies.</p></div>
+            <div class="card"><h3>Design Services</h3><p>End-to-end product design and engineering.</p></div>
+            <div class="card"><h3>Logistics</h3><p>Global supply-chain and after-market services.</p></div>
+          </div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="panel">
+          <h3 style="margin-top:0">Quick Actions</h3>
+          <p style="margin:8px 0" class="muted">Useful links for common tasks.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+            <a class="btn" href="{% url 'raiseticket' %}">Create New Ticket</a>
+            <a class="btn" href="{% url 'get_detail' %}">View Tickets</a>
+            <a class="btn" href="{% url 'contact' %}">Contact Support</a>
+          </div>
+        </div>
+
+
+      </aside>
+    </main>
+
+    <footer>
+      © Sanmina Tech Services India Private Limited — All rights reserved
+    </footer>
+  </div>
+
+</body>
+</html>

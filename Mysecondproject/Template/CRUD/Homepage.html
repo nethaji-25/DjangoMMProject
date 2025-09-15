@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'CRUD/Dashboard.html'%}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+
+{% if messages %}
+{% for i in messages %}
+<h1>{{i}}</h1>
+
+{% endfor %}
+
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+Username: <input type="text" name="loginid"><br><br>
+Password: <input type="text" name="password"><br><br>
+<button>Submit</button>
+<hr>
+    </form>
+
+
+</body>
+</html>
+{% endblock %}

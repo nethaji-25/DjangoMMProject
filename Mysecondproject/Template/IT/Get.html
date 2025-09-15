@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Tickets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 { text-align: center; color: #333; margin-bottom: 30px; }
+
+    .tickets-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .ticket-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ticket-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .ticket-card h3, .ticket-card h4 { margin: 10px 0; color: #444; }
+
+    .ticket-card textarea {
+      width: 100%;
+      height: 70px;
+      resize: none;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+
+    .priority {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .priority.low   { background: #d4edda; color: #155724; }
+    .priority.medium{ background: #fff3cd; color: #856404; }
+    .priority.high  { background: #f8d7da; color: #721c24; }
+
+    .status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.status.open {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.in_progress {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.closed {
+  background: #f8d7da;
+  color: #721c24;
+}
+  </style>
+</head>
+<body>
+  <h1>Below you can find the open tickets</h1>
+
+  <div class="tickets-container">
+    {% for i in t %}
+      <div class="ticket-card">
+        <h3>Employee: {{ i.Employeename }}</h3>
+
+        <h4>Summary</h4>
+        <textarea readonly>{{ i.Summary }}</textarea>
+
+        <h4>Description</h4>
+        <textarea readonly>{{ i.Description }}</textarea>
+
+        {% with label=i.get_Priority_display %}
+  <h4>
+    Priority:
+    <span class="priority
+      {% if label == "Low" %}low
+      {% elif label == "Priority" %}medium
+      {% elif label == "Top Priority" %}high
+      {% endif %}">
+      {{ label }}
+    </span>
+  </h4>
+        <h4>
+  Status:
+  <span class="status
+    {% if i.Status == 'open' %}open
+    {% elif i.Status == 'in_progress' %}in_progress
+    {% elif i.Status == 'closed' %}closed
+    {% endif %}">
+    {{ i.get_Status_display }}
+  </span>
+</h4>
+        <h4>
+          Ticket Number: {{i.id}}
+        </h4>
+
+{% endwith %}
+      </div>
+    {% empty %}
+      <p>No tickets found.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>
